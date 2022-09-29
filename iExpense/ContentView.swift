@@ -36,10 +36,14 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onMove { indexSet, offset in
+                    expenses.items.move(fromOffsets: indexSet, toOffset: offset)
+                }
                 .onDelete(perform: removeItems)
             }
             .navigationTitle("iExpense")
             .toolbar {
+                EditButton()
                 Button {
                     showingAddExpense = true
                 } label: {
