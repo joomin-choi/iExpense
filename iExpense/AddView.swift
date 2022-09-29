@@ -38,6 +38,7 @@ struct AddView: View {
                     expenses.items.append(item)
                     dismiss()
                 }
+                .disabled(name.isEmpty || amount.isZero)
             }
         }
     }
